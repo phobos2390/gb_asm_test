@@ -2,6 +2,7 @@ IF !DEF(TEST_LIST_INC)
 TEST_LIST_INC SET 1
 
 INCLUDE "sample_test.inc"
+INCLUDE "memcmp_test.inc"
 
 SECTION "test_directory", ROM0
 test_defs: 
@@ -12,6 +13,8 @@ test_defs:
   ; -------------------------------------------------------------------
   ;     ADD any additional tests below
   ; -------------------------------------------------------------------
+  DW mem1_eq_mem2_test_name, mem1_eq_mem2_test
+  DW mem1_eq_mem3_test_name, mem1_eq_mem3_test
 .end:
 
 sizeof_test_defs EQU (test_defs.end - test_defs.begin)
@@ -23,5 +26,7 @@ hello_world_test_name: DB "hello world! test",$0
 ; -------------------------------------------------------------------
 ;     ADD any additional test names below
 ; -------------------------------------------------------------------
+mem1_eq_mem2_test_name: DB "M1 = M2",$0
+mem1_eq_mem3_test_name: DB "M1 = M3",$0
 
 ENDC ; TEST_LIST_INC
