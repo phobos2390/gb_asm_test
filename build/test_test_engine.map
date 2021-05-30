@@ -1,0 +1,191 @@
+ROM0 bank #0:
+  SECTION: $0000-$0000 ($0001 byte) ["RST_00"]
+  SECTION: $0001-$0007 ($0007 bytes) ["LD [de] bc"]
+  SECTION: $0008-$0008 ($0001 byte) ["RST_08"]
+  SECTION: $0009-$000f ($0007 bytes) ["Memcpy_hram"]
+           $0009 = memcopy_hram
+  SECTION: $0010-$0010 ($0001 byte) ["RST_10"]
+  SECTION: $0011-$0017 ($0007 bytes) ["LD hl [bc]"]
+  SECTION: $0018-$0018 ($0001 byte) ["RST_18"]
+  SECTION: $0019-$001f ($0007 bytes) ["Next test_def hl"]
+           $0019 = inc_test_def_hl
+  SECTION: $0020-$0020 ($0001 byte) ["RST_20"]
+  SECTION: $0021-$0027 ($0007 bytes) ["LD bc [de]"]
+  SECTION: $0028-$0028 ($0001 byte) ["RST_28"]
+  SECTION: $0029-$002f ($0007 bytes) ["LD [bc] de"]
+           $0029 = ld_ibc_de
+  SECTION: $0030-$0030 ($0001 byte) ["RST_30"]
+  SECTION: $0031-$0037 ($0007 bytes) ["LD [bc] hl"]
+           $0031 = ld_ibc_hl
+  SECTION: $0038-$003a ($0003 bytes) ["RST_38"]
+  SECTION: $003b-$003f ($0005 bytes) ["LD [hl] bc"]
+           $003b = ld_ihl_bc
+  SECTION: $0040-$0046 ($0007 bytes) ["VBLANK INTERRUPT"]
+  SECTION: $0047-$0047 ($0001 byte) ["Null callback"]
+           $0047 = null_cb
+  SECTION: $0048-$004e ($0007 bytes) ["LCD Stat"]
+  SECTION: $0050-$0056 ($0007 bytes) ["Timer"]
+  SECTION: $0058-$005e ($0007 bytes) ["Serial"]
+  SECTION: $0060-$0066 ($0007 bytes) ["Joypad0"]
+  SECTION: $0067-$00b5 ($004f bytes) ["reset"]
+           $0067 = reset
+  SECTION: $00b6-$00fa ($0045 bytes) ["joypad table initialize"]
+  SECTION: $00fb-$00ff ($0005 bytes) ["LD de [hl]"]
+           $00fb = ld_de_ihl
+  SECTION: $0100-$014f ($0050 bytes) ["entrypoint"]
+           $0100 = entrypoint
+  SECTION: $0150-$094f ($0800 bytes) ["Font"]
+           $0150 = FontTiles
+           $0950 = FontTilesEnd
+  SECTION: $0950-$09f2 ($00a3 bytes) ["Continue joypad eval"]
+           $0950 = eval_joypad
+           $0965 = eval_joypad.button_a_f_not_defined
+           $0966 = eval_joypad.eval_b
+           $0979 = eval_joypad.button_b_f_not_defined
+           $097a = eval_joypad.eval_select
+           $098d = eval_joypad.button_select_f_not_defined
+           $098e = eval_joypad.eval_start
+           $09a1 = eval_joypad.button_start_f_not_defined
+           $09a2 = eval_joypad.eval_up
+           $09b5 = eval_joypad.pad_up_f_not_defined
+           $09b6 = eval_joypad.eval_down
+           $09c9 = eval_joypad.pad_down_f_not_defined
+           $09ca = eval_joypad.eval_right
+           $09dd = eval_joypad.pad_right_f_not_defined
+           $09de = eval_joypad.eval_left
+           $09f1 = eval_joypad.pad_left_f_not_defined
+           $09f2 = eval_joypad.eval_end
+  SECTION: $09f3-$0a2c ($003a bytes) ["Run test at hl"]
+           $09f3 = run_test_hl
+           $0a23 = run_test_hl.test_failed
+           $0a26 = run_test_hl.test_end
+  SECTION: $0a2d-$0a5f ($0033 bytes) ["Eval continual"]
+           $0a58 = eval_held_button.none_held
+           $0a5b = eval_held_button.pop_ret
+  SECTION: $0a60-$0a8f ($0030 bytes) ["Print high low"]
+           $0a60 = print_hl
+           $0a68 = print_hl.loop
+           $0a84 = print_hl.escape
+           $0a85 = print_hl.default
+           $0a8a = print_hl.end
+  SECTION: $0a90-$0abe ($002f bytes) ["JOYPAD Read"]
+  SECTION: $0abf-$0ae9 ($002b bytes) ["Run tests"]
+           $0abf = run_tests
+           $0ad2 = run_tests.loop
+           $0ae5 = run_tests.end
+  SECTION: $0aea-$0b13 ($002a bytes) ["Memcpy_inc"]
+           $0aea = memcopy_inc
+           $0af6 = memcmp
+           $0b04 = memcmp.finish
+           $0b05 = memcmp_fast
+           $0b11 = memcmp_fast.finish
+  SECTION: $0b14-$0b3a ($0027 bytes) ["Load tests"]
+           $0b14 = load_tests
+           $0b20 = load_tests.loop
+           $0b36 = load_tests.end
+  SECTION: $0b3b-$0b60 ($0026 bytes) ["Init_all_callbacks"]
+  SECTION: $0b61-$0b85 ($0025 bytes) ["Print newline"]
+           $0b61 = print_newline
+  SECTION: $0b86-$0ba0 ($001b bytes) ["Root Test Strings"]
+           $0b86 = test_succeeded
+           $0b94 = test_failed
+  SECTION: $0ba1-$0bb9 ($0019 bytes) ["Game code"]
+           $0ba1 = main
+           $0bb1 = main.lockup
+  SECTION: $0bba-$0bd2 ($0019 bytes) ["put string hl at b row c column in vblank"]
+           $0bbd = print_hl_at_b_row_c_column_vblank.line_number
+           $0bc7 = print_hl_at_b_row_c_column_vblank.set_offset
+  SECTION: $0bd3-$0beb ($0019 bytes) ["put string hl at bc in vblank"]
+           $0bd3 = put_string_hl_at_bc_in_vblank
+  SECTION: $0bec-$0c02 ($0017 bytes) ["init vram iterator"]
+           $0bec = init_vram_iterator
+  SECTION: $0c03-$0c14 ($0012 bytes) ["clear screen"]
+           $0c03 = clear_screen
+  SECTION: $0c15-$0c26 ($0012 bytes) ["test_names"]
+           $0c15 = hello_world_test_name
+  SECTION: $0c27-$0c38 ($0012 bytes) ["Initialize font"]
+           $0c27 = init_font
+           $0c30 = init_font.copyFont
+  SECTION: $0c39-$0c48 ($0010 bytes) ["Finalize initialization"]
+           $0c39 = final_init
+  SECTION: $0c49-$0c58 ($0010 bytes) ["Initialize display"]
+           $0c49 = init_display
+           $0c49 = init_display.waitVBlank_187
+  SECTION: $0c59-$0c68 ($0010 bytes) ["JOYPAD eval"]
+  SECTION: $0c69-$0c77 ($000f bytes) ["Memcpy vram verify"]
+           $0c69 = memcopy_to_vram
+           $0c6f = memcopy_to_vram.loop
+  SECTION: $0c78-$0c86 ($000f bytes) ["Copy test hl to de"]
+           $0c78 = ld_test_de_hl
+  SECTION: $0c87-$0c93 ($000d bytes) ["Next test_struct de"]
+           $0c87 = inc_test_struct_de
+  SECTION: $0c94-$0c9d ($000a bytes) ["put string hl at bc"]
+           $0c94 = put_string_hl_at_bc.waitVBlank_8
+  SECTION: $0c9e-$0ca6 ($0009 bytes) ["int_set_timer"]
+  SECTION: $0ca7-$0caf ($0009 bytes) ["LD [bc] [hl]"]
+  SECTION: $0cb0-$0cb8 ($0009 bytes) ["int_set_joypad"]
+  SECTION: $0cb9-$0cc1 ($0009 bytes) ["LD [de] [hl]"]
+           $0cb9 = ld_ide_ihl
+  SECTION: $0cc2-$0cca ($0009 bytes) ["LD [hl] [bc]"]
+  SECTION: $0ccb-$0cd3 ($0009 bytes) ["LD [hl] [de]"]
+  SECTION: $0cd4-$0cdc ($0009 bytes) ["init window"]
+  SECTION: $0cdd-$0ce5 ($0009 bytes) ["Memcpy"]
+           $0cdd = memcopy
+  SECTION: $0ce6-$0ced ($0008 bytes) ["Memset"]
+           $0ce6 = memset
+  SECTION: $0cee-$0cf5 ($0008 bytes) ["LD hl [hl]"]
+           $0cee = ld_hl_ihl
+  SECTION: $0cf6-$0cfc ($0007 bytes) ["Memcpy_fast"]
+           $0cf6 = memcopy_fast
+  SECTION: $0cfd-$0d03 ($0007 bytes) ["LD de [bc]"]
+           $0cfd = ld_de_ibc
+  SECTION: $0d04-$0d0a ($0007 bytes) ["LD [de] hl"]
+  SECTION: $0d0b-$0d11 ($0007 bytes) ["LD hl [de]"]
+  SECTION: $0d12-$0d17 ($0006 bytes) ["Interrupt_logic"]
+           $0d12 = int_common
+  SECTION: $0d18-$0d1c ($0005 bytes) ["LD bc [hl]"]
+           $0d18 = ld_bc_ihl
+  SECTION: $0d1d-$0d21 ($0005 bytes) ["Memset_fast"]
+           $0d1d = memset_fast
+  SECTION: $0d22-$0d26 ($0005 bytes) ["LD [hl] de"]
+           $0d22 = ld_ihl_de
+  SECTION: $0d27-$0d2a ($0004 bytes) ["test_directory"]
+           $0d27 = test_defs.begin
+           $0d2b = test_defs.end
+  SECTION: $0d2b-$0d2e ($0004 bytes) ["hello_world_test"]
+           $0d2b = hello_world_test
+    SLACK: $32d4 bytes
+
+WRAM0 bank #0:
+  SECTION: $c000-$c014 ($0015 bytes) ["Joypad callback tables"]
+           $c000 = pad_up_f
+           $c002 = pad_down_f
+           $c004 = pad_left_f
+           $c006 = pad_right_f
+           $c008 = button_a_f
+           $c00a = button_b_f
+           $c00c = button_start_f
+           $c00e = button_select_f
+           $c010 = button_data
+           $c011 = button_data_prev
+           $c012 = held_count
+           $c013 = held_refresh_rate
+           $c014 = held_mask
+  SECTION: $c015-$c01e ($000a bytes) ["Interrupt_callbacks"]
+           $c015 = vblank_f
+           $c017 = lcd_f
+           $c019 = timer_f
+           $c01b = serial_f
+           $c01d = joypad_f
+  SECTION: $c01f-$c026 ($0008 bytes) ["test_list"]
+           $c01f = test_struct.begin
+           $c01f = test_list
+           $c027 = test_list_end
+  SECTION: $c027-$c028 ($0002 bytes) ["VRAM iterator"]
+           $c027 = vram_iterator
+  SECTION: $c029-$c02a ($0002 bytes) ["Callback Stats"]
+  SECTION: $c02b-$c02c ($0002 bytes) ["newline offset"]
+           $c02b = newline_offset
+  SECTION: $c02d-$c02d ($0001 byte) ["Callback Flags"]
+    SLACK: $0fd2 bytes
+
