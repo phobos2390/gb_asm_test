@@ -15,6 +15,7 @@ test_defs:
   ; -------------------------------------------------------------------
   DW mem1_eq_mem2_test_name, mem1_eq_mem2_test
   DW mem1_eq_mem3_test_name, mem1_eq_mem3_test
+  DW mem3_eq_mem1_test_name, mem3_eq_mem1_test
 .end:
 
 sizeof_test_defs EQU (test_defs.end - test_defs.begin)
@@ -28,5 +29,6 @@ hello_world_test_name: DB "hello world! test",$0
 ; -------------------------------------------------------------------
 mem1_eq_mem2_test_name: DB "M1 = M2",$0
 mem1_eq_mem3_test_name: DB "M1 = M3",$0
+mem3_eq_mem1_test_name: DB "M3 = M1",$0
 
 ENDC ; TEST_LIST_INC

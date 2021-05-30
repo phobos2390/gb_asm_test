@@ -4,6 +4,7 @@ PRINT_UTILS_INC SET 1
 INCLUDE "constants.inc"
 INCLUDE "register_utils.inc"
 INCLUDE "vram_utils.inc"
+INCLUDE "func_utils.inc"
 
 escape_char EQU $5C
 
@@ -27,6 +28,39 @@ put_string_hl_at_bc_in_vblank:
       call ld_ihl_de
     pop de
   pop hl
+  ret
+
+SECTION "hex print array nibble", ROM0
+hex_print_array_nibble:
+DB "0123456789ABCDEF"
+
+SECTION "print hex in a", ROM0
+print_hex_a:
+  PUSH_HL_BC_DE
+    ld b, a
+    LD_R16_I_ADDR hl, vram_iterator
+    ld a, b
+
+    swap a
+
+    and $F
+    ld de, hex_print_array_nibble
+    add e
+    ld e, a
+    ld a, [de]
+    ld [hl+], a
+
+    ld a, b    
+
+    and $F
+    ld de, hex_print_array_nibble
+    add e
+    ld e, a
+    ld a, [de]
+    ld [hl], a
+
+    LD_I_ADDR_R16 vram_iterator, hl
+  POP_HL_BC_DE
   ret
 
 SECTION "put string hl at b row c column in vblank", ROM0

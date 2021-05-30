@@ -17,11 +17,5 @@ clean:
 test: build_test
 	sameboy_debugger build/$(TEST_NAME).gb
 
-run_test: build_test
-	sameboy build/$(NAME).gb
-
-debug_test: build_test
-	sameboy_debugger build/$(NAME).gb
-
 all: build_test
 

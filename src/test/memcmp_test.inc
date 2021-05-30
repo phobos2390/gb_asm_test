@@ -30,4 +30,10 @@ mem1_eq_mem3_test:
   ld hl, $1
   ret
 
+SECTION "memory equal 3-1", ROM0
+mem3_eq_mem1_test:
+  REQUIRE_MEM_EQ mem3_start, mem1_start, mem3_end - mem3_start
+  ld hl, $1
+  ret
+
 ENDC ; MEMCMP_TEST
