@@ -1,5 +1,5 @@
 IF !DEF(INTERRUPT_VECTORS_INC)
-INTERRUPT_VECTORS_INC SET 1
+INTERRUPT_VECTORS_INC=1
 
 INCLUDE "joypad_eval.inc"
 
@@ -54,11 +54,11 @@ ENDR
 ; Interrupt Vectors
 ;-------------------------------------------------------------------------------
 
-vblank_int_flag SET $1
-lcd_int_flag    SET $2
-timer_int_flag  SET $4
-serial_int_flag SET $8
-joypad_int_flag SET $10
+vblank_int_flag=$1
+lcd_int_flag   =$2
+timer_int_flag =$4
+serial_int_flag=$8
+joypad_int_flag=$10
 
 SECTION "VBLANK INTERRUPT", ROM0[$40]
 vblank_vector:

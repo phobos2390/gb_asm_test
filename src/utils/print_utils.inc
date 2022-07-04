@@ -1,5 +1,5 @@
 IF !DEF(PRINT_UTILS_INC)
-PRINT_UTILS_INC SET 1
+PRINT_UTILS_INC=1
 
 INCLUDE "constants.inc"
 INCLUDE "register_utils.inc"

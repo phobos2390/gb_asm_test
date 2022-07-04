@@ -1,5 +1,5 @@
 IF !DEF(OAM_UTILS_INC)
-OAM_UTILS_INC SET 1
+OAM_UTILS_INC=1
 
 INCLUDE "struct_utils.inc"
 

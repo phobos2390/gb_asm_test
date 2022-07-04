@@ -1,5 +1,5 @@
 IF !DEF(VRAM_UTILS_INC)
-VRAM_UTILS_INC SET 1
+VRAM_UTILS_INC=1
 
 INCLUDE "hardware.inc"
 INCLUDE "register_utils.inc"

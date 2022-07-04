@@ -1,5 +1,5 @@
 IF !DEF(TEST_LIST_INC)
-TEST_LIST_INC SET 1
+TEST_LIST_INC=1
 
 INCLUDE "sample_test.inc"
 INCLUDE "memcmp_test.inc"

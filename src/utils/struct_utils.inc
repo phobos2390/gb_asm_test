@@ -1,5 +1,5 @@
 IF !DEF(STRUCT_UTILS_INC)
-STRUCT_UTILS_INC SET 1
+STRUCT_UTILS_INC=1
 
 ; Params
 ; 1 - struct_label
