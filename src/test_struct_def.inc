@@ -1,5 +1,5 @@
 IF !DEF(TEST_STRUCT_DEF_INC)
-TEST_STRUCT_DEF_INC SET 1
+TEST_STRUCT_DEF_INC=1
 
 INCLUDE "test_list.inc"
 INCLUDE "register_utils.inc"

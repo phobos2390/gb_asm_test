@@ -1,5 +1,5 @@
 IF !DEF(VBLANK_UTILS_INC)
-VBLANK_UTILS_INC SET 1
+VBLANK_UTILS_INC=1
 
 INCLUDE "mem_utils.inc"
 INCLUDE "register_utils.inc"

@@ -1,5 +1,5 @@
 IF !DEF(REGISTER_UTILS_INC)
-REGISTER_UTILS_INC SET 1
+REGISTER_UTILS_INC=1
 
 ;-------------------------------------------------------------------------------
 

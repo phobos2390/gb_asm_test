@@ -1,5 +1,5 @@
 IF !DEF(TEST_MACROS_INC)
-TEST_MACROS_INC SET 1
+TEST_MACROS_INC=1
 
 include "mem_utils.inc"
 include "register_utils.inc"

@@ -7,7 +7,7 @@
 ;###############################################################################
 
 IF !DEF(MEM_UTILS_INC)
-MEM_UTILS_INC SET 1
+MEM_UTILS_INC=1
 
 INCLUDE "vram_utils.inc"
 

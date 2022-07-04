@@ -1,5 +1,5 @@
 IF !DEF(TIMING_UTILS_INC)
-TIMING_UTILS_INC SET 1
+TIMING_UTILS_INC=1
 
 INCLUDE "struct_utils.inc"
 INCLUDE "register_utils.inc"

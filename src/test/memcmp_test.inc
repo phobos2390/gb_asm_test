@@ -1,5 +1,5 @@
 IF !DEF(MEMCMP_TEST)
-MEMCMP_TEST SET 1
+MEMCMP_TEST=1
 
 INCLUDE "test_macros.inc"
 

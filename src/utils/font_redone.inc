@@ -1,5 +1,5 @@
 IF !DEF(TILESET_INC)
-TILESET_INC SET 1
+TILESET_INC=1
 
 tileset_orig:
 
